@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mdbeaver</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://apis.google.com/js/api.js" async defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js" defer></script>
+  <script src="app.js" type="module" defer></script>
+</head>
+<body>
+  <header>
+    <div>
+      <div class="brand">
+        <img src="img/appicon.png" alt="mdbeaver" class="logo" width="48" height="48">
+        <div>
+          <h1>mdbeaver</h1>
+          <p class="subtitle">Client-side Google Drive "Open with" app</p>
+        </div>
+      </div>
+    </div>
+    <div id="authStatus" class="auth-status">Not signed in</div>
+    <button id="signInBtn" class="primary">Authorize Drive Access</button>
+  </header>
+
+  <section id="fileInfo" class="card hidden">
+    <h2>File</h2>
+    <div class="file-meta">
+      <div><strong>Name:</strong> <span id="fileName">–</span></div>
+      <div><strong>Owner:</strong> <span id="fileOwner">–</span></div>
+      <div><strong>Modified:</strong> <span id="fileModified">–</span></div>
+    </div>
+    <div class="actions">
+      <button id="refreshBtn">Reload</button>
+      <button id="saveBtn" class="primary">Save</button>
+    </div>
+    <p id="statusMessage" class="status"></p>
+  </section>
+
+  <main class="editor-grid">
+    <section class="editor">
+      <div class="section-header">
+        <h2>Editor</h2>
+        <label class="monospace">
+          <span>Autosave on edit</span>
+          <input type="checkbox" id="autosaveToggle">
+        </label>
+      </div>
+      <textarea id="markdownInput" placeholder="Markdown content appears here..." disabled></textarea>
+    </section>
+
+    <section class="preview">
+      <div class="section-header">
+        <h2>Preview</h2>
+      </div>
+      <div id="previewPane" class="preview-pane"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Configure your Google Cloud OAuth client ID in <code>app.js</code> before deploying.
+      Host this static bundle over HTTPS and register the launch URL in the Google Drive SDK console.
+    </p>
+  </footer>
+</body>
+</html>
