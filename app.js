@@ -1,4 +1,4 @@
-const CLIENT_ID = "YOUR_OAUTH_CLIENT_ID.apps.googleusercontent.com";
+const CLIENT_ID = "564315934720-085nh1fk8bbnmq8oea6erpcfeapbbki8.apps.googleusercontent.com";
 const SCOPES = "https://www.googleapis.com/auth/drive.file";
 
 const els = {
